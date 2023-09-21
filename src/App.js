@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  Route,
+  Link,
+  Routes,
+  useNavigate
+
+} from "react-router-dom"
+import ProductsPage from "./components/ProductsPage/ProductsPage";
+import LoginPage from "./components/LoginPage/LoginPAge";
+import RegisterPage from "./components/RegisterPage/RegisterPage";
+import CartPage from "./components/CartPage/CartPage";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 function App() {
+
+  let dispatch = useDispatch();
+  let navigate = useNavigate();
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route exact path='/' Component={ProductsPage}/>
+      <Route excat path='/login' Component={LoginPage}/>
+      <Route excat path='/register' Component={RegisterPage}/>
+      <Route excat path='/cart' Component={CartPage}/>
+    </Routes>
   );
 }
 
